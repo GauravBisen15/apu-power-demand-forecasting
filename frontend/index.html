@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APU Power Demand Forecasting</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Power Demand Forecasting</h1>
+    <p>Apex Power &amp; Utilities &middot; Dhanbad, Jharkhand &middot; 24-hour forecast in 30-minute blocks</p>
+  </header>
+
+  <main>
+    <section class="controls">
+      <label>Date
+        <input type="date" id="date-input">
+      </label>
+      <label>Forecast for
+        <select id="target-select">
+          <option value="Total_Load">Total load</option>
+          <option value="F1">Feeder F1</option>
+          <option value="F2">Feeder F2</option>
+          <option value="F3">Feeder F3</option>
+        </select>
+      </label>
+      <label>Resolution
+        <select id="interval-select">
+          <option value="30">30 min (48 blocks)</option>
+          <option value="15">15 min (96 blocks, interpolated)</option>
+        </select>
+      </label>
+      <span id="mode-badge" class="badge"></span>
+    </section>
+
+    <p id="message" class="message"></p>
+
+    <section class="kpis">
+      <div class="kpi"><span class="kpi-label">Peak demand</span><span class="kpi-value" id="kpi-peak">-</span><span class="kpi-sub" id="kpi-peak-time"></span></div>
+      <div class="kpi"><span class="kpi-label">Lowest demand</span><span class="kpi-value" id="kpi-low">-</span><span class="kpi-sub" id="kpi-low-time"></span></div>
+      <div class="kpi"><span class="kpi-label">Average demand</span><span class="kpi-value" id="kpi-avg">-</span><span class="kpi-sub">kW</span></div>
+      <div class="kpi"><span class="kpi-label">Model test error</span><span class="kpi-value" id="kpi-mape">-</span><span class="kpi-sub">MAPE on Nov-Dec 2017</span></div>
+    </section>
+
+    <section class="card">
+      <h2 id="forecast-title">Load forecast</h2>
+      <p class="note" id="forecast-note"></p>
+      <div class="chart-box tall"><canvas id="forecast-chart"></canvas></div>
+    </section>
+
+    <section class="card">
+      <h2>Dhanbad weather</h2>
+      <p class="note" id="weather-note"></p>
+      <div class="grid-3">
+        <div class="chart-box"><canvas id="temp-chart"></canvas></div>
+        <div class="chart-box"><canvas id="humidity-chart"></canvas></div>
+        <div class="chart-box"><canvas id="cloud-chart"></canvas></div>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Holidays in Dhanbad / Jharkhand</h2>
+      <p class="note" id="holiday-note"></p>
+      <table>
+        <thead>
+          <tr><th>Date</th><th>Day</th><th>Holiday</th><th>Category</th><th>Relative to forecast day</th></tr>
+        </thead>
+        <tbody id="holiday-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Gradient-boosted trees &middot; features: calendar, local holidays, Dhanbad weather (Open-Meteo) and load lags
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

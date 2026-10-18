@@ -1,0 +1,26 @@
+{
+  "selected_feature_set": "F: all features",
+  "test_metrics": {
+    "Total_Load": {
+      "MAE": 1448,
+      "RMSE": 2057,
+      "MAPE %": 2.29
+    },
+    "F1": {
+      "MAE": 769,
+      "RMSE": 1042,
+      "MAPE %": 2.63
+    },
+    "F2": {
+      "MAE": 932,
+      "RMSE": 1251,
+      "MAPE %": 4.12
+    },
+    "F3": {
+      "MAE": 836,
+      "RMSE": 1292,
+      "MAPE %": 7.12
+    }
+  },
+  "baseline_best_mape": 3.37
+}

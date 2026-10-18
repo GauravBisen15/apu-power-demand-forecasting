@@ -1,0 +1,94 @@
+:root {
+  --blue: #1f6feb;
+  --grey: #6b7280;
+  --light: #f3f4f6;
+  --border: #e5e7eb;
+  --text: #111827;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background: var(--light);
+}
+
+header {
+  background: #0f2a4a;
+  color: white;
+  padding: 24px 32px;
+}
+header h1 { margin: 0 0 6px; font-size: 26px; }
+header p { margin: 0; color: #c7d2e5; font-size: 14px; }
+
+main { max-width: 1200px; margin: 0 auto; padding: 24px 16px 40px; }
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+.controls label { display: flex; flex-direction: column; font-size: 13px; color: var(--grey); gap: 4px; }
+.controls input, .controls select {
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+}
+
+.badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.badge.forecast { background: #dcfce7; color: #166534; }
+.badge.backtest { background: #fef3c7; color: #92400e; }
+
+.message { color: #b91c1c; min-height: 20px; margin: 4px 0 12px; font-size: 14px; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.kpi {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+}
+.kpi-label { font-size: 13px; color: var(--grey); }
+.kpi-value { font-size: 26px; font-weight: 700; margin: 4px 0; }
+.kpi-sub { font-size: 12px; color: var(--grey); }
+
+.card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.card h2 { margin: 0 0 4px; font-size: 18px; }
+.note { margin: 0 0 12px; font-size: 13px; color: var(--grey); }
+
+.chart-box { position: relative; height: 240px; }
+.chart-box.tall { height: 380px; }
+.grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); }
+th { background: var(--light); font-weight: 600; }
+tr.today { background: #fef3c7; font-weight: 600; }
+
+.tag { padding: 2px 8px; border-radius: 999px; font-size: 12px; background: var(--light); }
+
+footer { text-align: center; color: var(--grey); font-size: 12px; padding: 0 16px 24px; }
+
+@media (max-width: 600px) {
+  header { padding: 18px 16px; }
+  .kpi-value { font-size: 22px; }
+}
