@@ -4,7 +4,7 @@ A 24-hour electricity demand forecast in 30-minute blocks for Apex Power & Utili
 
 Submitted by: Gaurav Bisen | Data Developer Intern assignment, Exascale Deeptech & AI
 
-![Dashboard](screenshots/dashboard.png)
+![Dashboard](screenshots/dashboard.png.jpeg)
 
 ## Quick start
 
